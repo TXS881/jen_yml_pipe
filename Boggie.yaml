@@ -5,6 +5,7 @@ pipeline:
     - stage: "Test"
       steps:
         - sh "pwd"
+        - sh "ls -ltr"
         - echo "run second script"
     - stage: "Prod"
       steps:
