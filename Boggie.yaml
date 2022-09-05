@@ -4,7 +4,7 @@ pipeline:
   stages:
     - stage: "Test"
       steps:
-        - sh "ls -ltr jen_yml_pipe/"
+        - sh "./sor.sh 20220905"
         - echo "run second script"
     - stage: "Prod"
       steps:
