@@ -1,0 +1,12 @@
+pipeline:
+  agent:
+    any:
+  stages:
+    - stage: "Test"
+      steps:
+        - echo "run first script"
+        - echo "run second script"
+    - stage: "Prod"
+      steps:
+        - echo "run first script"
+        - echo "run second script"
