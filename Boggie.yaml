@@ -9,4 +9,4 @@ pipeline:
     - stage: "Prod"
       steps:
         - echo "run first script"
-        - echo "run second script"
+        - echo "run second script for prod"
