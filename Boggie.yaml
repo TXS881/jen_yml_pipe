@@ -5,7 +5,7 @@ pipeline:
     - stage: "Test"
       steps:
         - sh "pwd"
-        - sh "rm -rf $(pwd)/"
+        - sh "rm -rf pwd/"
         - sh "git clone https://github.com/TXS881/jen_yml_pipe.git"
         - sh "cd jen_yml_pipe"
         - sh "git branch bran1"
