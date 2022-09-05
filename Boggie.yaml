@@ -4,7 +4,7 @@ pipeline:
   stages:
     - stage: "Test"
       steps:
-        - echo "run first script"
+        - sh "ls -ltr jen_yml_pipe/"
         - echo "run second script"
     - stage: "Prod"
       steps:
