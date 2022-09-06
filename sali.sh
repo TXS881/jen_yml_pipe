@@ -3,17 +3,20 @@ export ODATE=$1
 currdir=`pwd`
 #echo "${currdir}/"
 c=`ls -ltr ${currdir}/ | grep logs | awk '{print $9}'`
-echo "${c}"
 
-rm -rf ${currdir}/*logs.log
-$(touch ${ODATE}_logs.log)
+
+
+log_dir="/home/ec2-user/log_dir/"
+
+rm -rf ${log_dir}*logs.log
+$(touch ${log_dir}${ODATE}_logs.log)
 
 log_file=${ODATE}_logs.log
 
-if [[ -f ${log_file} ]]
+if [[ -f ${log_dir}${log_file} ]]
 then
-    echo "Info: Todays log file start" > ${log_file}
-else 
+    echo "Info: Todays log file start" > ${log_dir}${log_file}
+else
     exit 7
 fi
 

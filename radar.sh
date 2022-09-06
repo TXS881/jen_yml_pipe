@@ -1,17 +1,17 @@
-
 export ODATE=$1
 echo "${ODATE}"
 
 currdir=`pwd`
 echo "${currdir}"
 
-export log=${currdir}/${ODATE}_logs.log
+log_dir='/home/ec2-user/log_dir/'
+export log=${log_dir}${ODATE}_logs.log
 
 
 file_name="/other/splyr.txt"
 
 if [[ -f ${currdir}${file_name} ]]
-then    
+then
 
     echo "INFO : splyr file present for ${ODATE}" > ${log}
 else
@@ -30,4 +30,6 @@ else
     exit 3
 fi
 
+
+aws s3 cp ${log} s3://raghunathnagar/log/
 exit 0
