@@ -8,8 +8,8 @@ c=`ls -ltr ${currdir}/ | grep logs | awk '{print $9}'`
 
 log_dir="/home/ec2-user/log_dir/"
 
-sudo rm -rf ${log_dir}*logs.log
-$(sudo touch ${log_dir}${ODATE}_logs.log)
+rm -rf ${log_dir}*logs.log
+$(touch ${log_dir}${ODATE}_logs.log)
 
 log_file=${ODATE}_logs.log
 
