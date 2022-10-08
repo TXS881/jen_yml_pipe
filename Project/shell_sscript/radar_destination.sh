@@ -12,28 +12,23 @@
 export ODATE=$1
 export ENV=$2
 
+
+aws s3 cp s3://raghunathnagar/Input_Files/radar.csv /home/ubuntu
+
+
 spark_sub=$( find ~/ -type f -name "spark-submit" | cut -d'/' -f1-4)
 ${spark_sub}/bin/spark-submit \
 	--deploy-mode client \
-	/home/ubuntu/Project/mode.py
+	/home/ubuntu/jen_yml_pipe/Project/python_script/mode.py
 
 
 
-csv_file=$(ls -ltr '/home/ubuntu/Project/readar_clean.csv/'| grep 'part*')
-
-if [ -f ${csv_file} ]
-then
-        echo " transfered csv file "
-else
-        echo "file is not present"
-        exit 6
-fi
 
 # Upload file into s3
 
-aws s3 mv /home/ubuntu/Project/readar_clean.csv/part* s3://raghunathnagar/Output_Files/
+aws s3 mv /home/ubuntu/readar_clean/part* s3://raghunathnagar/Output_Files/
 
 # purge file
-rm -rf /home/ubuntu/Project/readar_clean
+rm -rf /home/ubuntu/readar_clean
 
 exit 0
